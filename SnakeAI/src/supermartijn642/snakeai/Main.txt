@@ -1,0 +1,164 @@
+package supermartijn642.snakeai;
+
+import supermartijn642.nolearnneuralnetwork.NeuralNetwork;
+import supermartijn642.snakeai.providers.CrossDistanceGameProvider;
+import supermartijn642.snakeai.providers.NeuralNetworkGameProvider;
+import supermartijn642.snakeai.render.Display;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.*;
+
+/**
+ * Created 2/1/2019 by SuperMartijn642
+ */
+public class Main {
+
+    public static final int POPULATION_SIZE = 2000;
+    public static final int ITERATIONS = 200000;
+    public static final int SURVIVORS = 100;
+    public static final int NEW_SNAKES = 100;
+
+    public static final boolean DEBUG = true;
+    public static final boolean ADVANCED_DEBUG = false;
+    public static boolean DISPLAY_BEST = true; // always true by default
+    public static final boolean DISPLAY_ALL = false;
+    public static final int UPS = 60;
+    public static final int DELAY = 100;
+
+    public static double sigmoid(double x){
+        return 1 / (1 + Math.exp(-x));
+    }
+
+    public static Random random;
+    public static LinkedHashMap<NeuralNetworkGameProvider,SnakeGame> networks;
+
+    public static void main(String[] args){
+        random = new Random(3);
+        if(DISPLAY_BEST || DISPLAY_ALL)
+            Display.createFrame();
+        createNetworks();
+        for(int a = 0; a < ITERATIONS; a++){
+            runAllNetworks();
+            sortNetworks();
+            // logging
+            if(DEBUG) {
+                if (ADVANCED_DEBUG) {
+                    System.out.println("=====================================================");
+                    System.out.println("iteration: " + (a + 1));
+                    for (int b = 0; b < networks.size(); b++) {
+                        int id = ((NeuralNetworkGameProvider)networks.keySet().toArray()[b]).network.id;
+                        SnakeGame game = (SnakeGame)networks.values().toArray()[b];
+                        System.out.println("id: " + id + " score: " + game.getScore() + " updates: " + game.getUpdates());
+                    }
+                }
+                int id = ((NeuralNetworkGameProvider)networks.keySet().toArray()[0]).network.id;
+                SnakeGame game = (SnakeGame)networks.values().toArray()[0];
+                System.out.println("--- best of iteration " + (a + 1) + " ---");
+                System.out.println("id: " + id + " score: " + game.getScore() + " updates: " + game.getUpdates());
+                if (ADVANCED_DEBUG) {
+                    System.out.println("=====================================================");
+                }
+            }
+            if(DISPLAY_BEST){
+                NeuralNetworkGameProvider provider = (NeuralNetworkGameProvider)networks.keySet().toArray()[0];
+                SnakeGame game = (SnakeGame)networks.values().toArray()[0];
+                game = new SnakeGame(provider,game.getSeed());
+                Display.playGame(game,UPS,DELAY);
+            }
+            mutateNetworks();
+        }
+        saveToFile(((NeuralNetworkGameProvider)networks.keySet().toArray()[0]).network);
+        NeuralNetworkGameProvider provider = (NeuralNetworkGameProvider) networks.keySet().toArray()[0];
+        SnakeGame game = (SnakeGame) networks.values().toArray()[0];
+        game = new SnakeGame(provider, game.getSeed());
+        Display.playGame(game, UPS, DELAY);
+        while(true) {
+            game = new SnakeGame(provider,random.nextInt());
+            Display.playGame(game, UPS, DELAY);
+        }
+    }
+
+    public static void createNetworks(){
+        networks = new LinkedHashMap<>(POPULATION_SIZE);
+        synchronized(networks) {
+            for (int a = 0; a < POPULATION_SIZE; a++) {
+                NeuralNetworkGameProvider provider = new CrossDistanceGameProvider(x -> x);
+                networks.put(provider, new SnakeGame(provider, random.nextInt()));
+            }
+        }
+    }
+
+    public static void runAllNetworks(){
+        if(DISPLAY_ALL){
+            Collection<SnakeGame> games = networks.values();
+            for(SnakeGame game : games)
+                Display.playGame(game,UPS,DELAY);
+        }
+        else {
+            Thread[] threads = new Thread[networks.size() % 8 == 0 ? 8 : networks.size() % 10 == 0 ? 10 : 1];
+            for (int a = 0; a < threads.length; a++) {
+                final int currentThread = a;
+                threads[currentThread] = new Thread(() -> {
+                    for (int d = currentThread * (networks.size() / threads.length); d < (currentThread + 1) * (networks.size() / threads.length); d++) {
+                        ((SnakeGame) networks.values().toArray()[d]).finish();
+                    }
+                });
+                threads[currentThread].start();
+            }
+            for (Thread thread : threads)
+                try {
+                    thread.join();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        }
+    }
+
+    public static void sortNetworks(){
+        synchronized (networks){
+            // sorting
+            ArrayList<Map.Entry<NeuralNetworkGameProvider,SnakeGame>> sorted = new ArrayList<>(networks.entrySet());
+            sorted.sort((a,b) -> {
+                int score = Double.compare(b.getValue().getScore(),a.getValue().getScore());
+                int updates = 0;//Integer.compare(res2.getValue().updates, res1.getValue().updates);
+                return score == 0 ? updates == 0 ? Integer.compare(a.getKey().network.id,b.getKey().network.id) : updates : score; // smaller than 0 if a is better than b
+            });
+            networks.clear();
+            for(Map.Entry<NeuralNetworkGameProvider,SnakeGame> entry : sorted)
+                networks.put(entry.getKey(),entry.getValue());
+        }
+    }
+
+    public static void mutateNetworks(){
+        LinkedHashMap<NeuralNetworkGameProvider, SnakeGame> new_networks = new LinkedHashMap<>(POPULATION_SIZE);
+        for (int a = 0; a < SURVIVORS; a++) {
+            NeuralNetworkGameProvider provider = (NeuralNetworkGameProvider) networks.keySet().toArray()[a];
+            new_networks.put(provider, new SnakeGame(provider, random.nextInt()));
+        }
+        for (int a = 0; a < NEW_SNAKES; a++) {
+            NeuralNetworkGameProvider provider = new CrossDistanceGameProvider(x -> x);
+            new_networks.put(provider, new SnakeGame(provider, random.nextInt()));
+        }
+        for (int a = SURVIVORS + NEW_SNAKES; a < POPULATION_SIZE; a++) {
+            NeuralNetworkGameProvider provider = (NeuralNetworkGameProvider) networks.keySet().toArray()[a % SURVIVORS];
+            provider = new CrossDistanceGameProvider(provider.network.clone());
+            provider.network.changeWeights(2, random);
+            new_networks.put(provider,new SnakeGame(provider,random.nextInt()));
+        }
+        networks.clear();
+        networks.putAll(new_networks);
+    }
+
+    public static void saveToFile(NeuralNetwork network){
+        File file = new File("./network-1.network");
+        for(int a = 2; file.exists(); a++)
+            file = new File("./network-" + a + ".network");
+        try {
+            file.getParentFile().mkdirs();
+            FileOutputStream stream = new FileOutputStream(file);
+            stream.write(network.toBytes());
+            stream.close();
+        } catch(Exception e) {e.printStackTrace();}
+    }
+}
