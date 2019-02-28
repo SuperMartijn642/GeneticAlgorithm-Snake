@@ -111,7 +111,7 @@ public class Display implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_SPACE)
-            Main.DISPLAY_BEST = !Main.DISPLAY_BEST;
+//        if(e.getKeyCode() == KeyEvent.VK_SPACE)
+//            Main.DISPLAY_BEST = !Main.DISPLAY_BEST;
     }
 }

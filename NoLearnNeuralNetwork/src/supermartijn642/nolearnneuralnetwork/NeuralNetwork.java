@@ -1,6 +1,7 @@
 package supermartijn642.nolearnneuralnetwork;
 
 import com.sun.istack.internal.NotNull;
+import com.sun.istack.internal.Nullable;
 
 import java.nio.ByteBuffer;
 import java.util.Random;
@@ -140,7 +141,7 @@ public class NeuralNetwork {
         return this.weights;
     }
 
-    public void setActivationFunction(Function<Double,Double> function){
+    public void setActivationFunction(@Nullable Function<Double,Double> function){
         this.activationFunction = function;
     }
 

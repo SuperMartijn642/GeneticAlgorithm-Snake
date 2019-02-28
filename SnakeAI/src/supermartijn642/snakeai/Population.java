@@ -112,7 +112,7 @@ public class Population {
         new Thread("SnakeIterationsThread"){
             @Override
             public void run() {
-                Population.this.runAsync(iterations);
+                Population.this.run(iterations);
             }
         }.start();
     }
@@ -162,5 +162,22 @@ public class Population {
 
     public SnakeGame getCurrentBestGame(){
         return this.getBestGame(this.iteration);
+    }
+
+    public boolean isRunning(){
+        return this.running;
+    }
+
+    public void stop(){
+        if(this.running)
+            this.shouldStop = true;
+    }
+
+    public int getGameSize(){
+        return this.gameSize;
+    }
+
+    public int getGeneration(){
+        return this.iteration;
     }
 }

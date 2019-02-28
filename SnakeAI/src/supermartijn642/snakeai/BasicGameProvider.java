@@ -47,7 +47,7 @@ public abstract class BasicGameProvider implements SnakeGameProvider {
 
     @Override
     public Point getStartPos() {
-        return new Point(this.x_size / 2,this.y_size / 2);
+        return new Point((int)(this.x_size / 2D),(int)(this.y_size / 2D));
     }
 
     @Override
