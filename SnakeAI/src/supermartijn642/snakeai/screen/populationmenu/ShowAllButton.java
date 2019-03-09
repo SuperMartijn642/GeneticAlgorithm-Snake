@@ -1,6 +1,7 @@
-package supermartijn642.snakeai.screen;
+package supermartijn642.snakeai.screen.populationmenu;
 
 import supermartijn642.snakeai.Position;
+import supermartijn642.snakeai.screen.SquareButton;
 
 import java.awt.*;
 
@@ -19,7 +20,7 @@ public class ShowAllButton extends SquareButton {
     @Override
     public void drawIcon(Graphics2D graphics) {
         graphics.setColor(this.menu.every_generation ? Color.GREEN : Color.RED);
-        graphics.fillRect((int)(this.pos.x + this.size * 0.2D),(int)(this.pos.y + this.size * 0.2D),(int)(0.6D * this.size),(int)(0.6D * this.size));
+        graphics.fillRect((int)(this.pos.x + this.width * 0.2D),(int)(this.pos.y + this.height * 0.2D),(int)(0.6D * this.width),(int)(0.6D * this.height));
     }
 
     @Override

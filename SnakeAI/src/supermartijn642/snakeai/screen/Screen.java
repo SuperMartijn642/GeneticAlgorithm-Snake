@@ -1,6 +1,7 @@
 package supermartijn642.snakeai.screen;
 
 import supermartijn642.snakeai.render.IButton;
+import supermartijn642.snakeai.screen.mainmenu.MainMenu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,8 +19,8 @@ public class Screen implements MouseListener, MouseMotionListener {
 
     private static final int IDEAL_WIDTH = 1440;
     private static final int IDEAL_HEIGHT = 810;
-    private static final double HEIGHT_PER_WIDTH = (double)IDEAL_HEIGHT / IDEAL_WIDTH;
-    private static final double WIDTH_PER_HEIGHT = (double)IDEAL_HEIGHT / IDEAL_WIDTH;
+    public static final double HEIGHT_PER_WIDTH = (double)IDEAL_HEIGHT / IDEAL_WIDTH;
+    public static final double WIDTH_PER_HEIGHT = (double)IDEAL_HEIGHT / IDEAL_WIDTH;
     private static final int TRANSITION_FRAMES = 30;
 
     private static JFrame frame;
@@ -27,6 +28,7 @@ public class Screen implements MouseListener, MouseMotionListener {
 
     public static int width;
     public static int height;
+    public static Point lastMousePos;
 
     private static ArrayList<IMenu> menus;
     private static int transitionFrame;
@@ -49,15 +51,16 @@ public class Screen implements MouseListener, MouseMotionListener {
         transitionFrame = 0;
         frame = new JFrame("Snake Neural Network Trainer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setUndecorated(true);
-        frame.setResizable(false);
-        frame.setSize(width,height);
+        frame.setUndecorated(false);
+        frame.setResizable(true);
+        frame.getContentPane().setPreferredSize(new Dimension(width,height));
+        frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.addMouseListener(new Screen());
         frame.addMouseMotionListener(new Screen());
         canvas = new Canvas();
-        canvas.setSize(frame.getSize());
+        canvas.setSize(width,height);
         canvas.setBackground(Color.BLACK);
         canvas.addMouseListener(new Screen());
         canvas.addMouseMotionListener(new Screen());
@@ -156,12 +159,12 @@ public class Screen implements MouseListener, MouseMotionListener {
     public void mouseEntered(MouseEvent e) {}
 
     @Override
-    public void mouseExited(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {
+        lastMousePos = new Point(-1,-1);
+    }
 
     @Override
     public void mouseDragged(MouseEvent e) {}
-
-    private Point lastMousePos;
 
     @Override
     public void mouseMoved(MouseEvent e) {

@@ -1,4 +1,6 @@
-package supermartijn642.snakeai.screen;
+package supermartijn642.snakeai.screen.populationmenu;
+
+import supermartijn642.snakeai.screen.Screen;
 
 import java.awt.*;
 
@@ -25,7 +27,7 @@ public class InfoBar {
     public void draw(Graphics2D graphics,PopulationMenu menu){
         graphics.setColor(Color.DARK_GRAY);
         graphics.fillRect(this.x,this.y,this.width,this.height);
-        graphics.setFont(new Font("",Font.PLAIN,20));
+        graphics.setFont(new Font("",Font.PLAIN,(int)(this.width * 0.07)));
         int x = (int)(this.x + LEFT_MARGIN * this.width);
         int x2 = (int)(this.x + (1 - RIGHT_MARGIN) * this.width);
         // generation

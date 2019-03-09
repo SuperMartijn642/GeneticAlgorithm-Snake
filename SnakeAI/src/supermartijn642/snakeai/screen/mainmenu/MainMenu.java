@@ -1,10 +1,13 @@
-package supermartijn642.snakeai.screen;
+package supermartijn642.snakeai.screen.mainmenu;
 
 import supermartijn642.snakeai.Population;
 import supermartijn642.snakeai.SnakeGame;
 import supermartijn642.snakeai.providers.CrossDistanceGameProvider;
 import supermartijn642.snakeai.render.AnimatedButton;
 import supermartijn642.snakeai.render.IButton;
+import supermartijn642.snakeai.screen.IMenu;
+import supermartijn642.snakeai.screen.populationmenu.PopulationMenu;
+import supermartijn642.snakeai.screen.Screen;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -20,11 +23,17 @@ import java.util.Random;
  */
 public class MainMenu implements IMenu {
 
+    private static final int GAME_COLUMNS = 70;
+    private static final int GAME_ROWS = (int)(Screen.HEIGHT_PER_WIDTH * GAME_COLUMNS);
+    private static final double GRID_SIZE = Screen.width / (double)(GAME_COLUMNS + 2);
+    private static final int FRAMES_PER_UPDATE = 2;
+
     private BufferedImage imgGame;
     private BufferedImage imgGameBlurred;
     private ArrayList<IButton> buttons = new ArrayList<>(2);
     private SnakeGame game;
-    private double gridSize = Screen.width / 144D;
+
+    private int frameCount = 0;
 
     public MainMenu(int width, int height){
         this.imgGame = new BufferedImage(width,height,BufferedImage.TYPE_INT_ARGB);
@@ -48,11 +57,11 @@ public class MainMenu implements IMenu {
         this.game = new SnakeGame(new CrossDistanceGameProvider(x -> x,1,10){
             @Override
             public int getXSize(SnakeGame game) {
-                return 144 - 2;
+                return GAME_COLUMNS;
             }
             @Override
             public int getYSize(SnakeGame game) {
-                return 81 - 2;
+                return GAME_ROWS;
             }
             @Override
             public Point getNewFoodPos(SnakeGame game) {
@@ -75,6 +84,11 @@ public class MainMenu implements IMenu {
             public Point getStartPos() {
                 return new Point((int)(this.getXSize(null) / 2D),(int)(this.getYSize(null) / 2D));
             }
+
+            @Override
+            public boolean timeout(SnakeGame game) {
+                return false;
+            }
         },new Random().nextLong());
     }
 
@@ -89,31 +103,36 @@ public class MainMenu implements IMenu {
     }
 
     private void drawGame(){
-        game.update();
+        if(frameCount >= FRAMES_PER_UPDATE) {
+            game.update();
+            frameCount = 0;
+        }
+        else
+            frameCount++;
         Graphics2D graphics = this.imgGame.createGraphics();
         graphics.setColor(Color.GRAY);
         graphics.fillRect(0,0,this.imgGame.getWidth(),this.imgGame.getHeight());
         // walls
         graphics.setColor(Color.WHITE);
         for(int x = 0; x <= 1; x++){
-            for(int y = 0; y < 81; y++){
-                graphics.fillRect((int)(x * (144 - 1) * gridSize + 1),(int)(y * gridSize + 1),(int)gridSize - 2,(int)gridSize - 2);
+            for(int y = 0; y < GAME_ROWS + 2; y++){
+                graphics.fillRect((int)(x * (GAME_COLUMNS + 1) * GRID_SIZE + 1),(int)(y * GRID_SIZE + 1),(int)GRID_SIZE - 2,(int)GRID_SIZE - 2);
             }
         }
         for(int y = 0; y <= 1; y++){
-            for(int x = 0; x < 144; x++){
-                graphics.fillRect((int)(x * gridSize + 1),(int)(y * (81 - 1) * gridSize + 1),(int)gridSize - 2,(int)gridSize - 2);
+            for(int x = 0; x < GAME_COLUMNS + 2; x++){
+                graphics.fillRect((int)(x * GRID_SIZE + 1),(int)(y * (GAME_ROWS + 1) * GRID_SIZE + 1),(int)GRID_SIZE - 2,(int)GRID_SIZE - 2);
             }
         }
         // snake
         graphics.setColor(Color.GREEN);
-        graphics.fillRect((int)((this.game.getHead().x + 1) * gridSize + 1),(int)((this.game.getHead().y + 1) * gridSize + 1),(int)gridSize - 2, (int)gridSize - 2);
+        graphics.fillRect((int)((this.game.getHead().x + 1) * GRID_SIZE + 1),(int)((this.game.getHead().y + 1) * GRID_SIZE + 1),(int)GRID_SIZE - 2, (int)GRID_SIZE - 2);
         for(Point point : this.game.getTale())
-            graphics.fillRect((int)((point.x + 1) * gridSize + 1),(int)((point.y + 1) * gridSize + 1),(int)gridSize - 2, (int)gridSize - 2);
+            graphics.fillRect((int)((point.x + 1) * GRID_SIZE + 1),(int)((point.y + 1) * GRID_SIZE + 1),(int)GRID_SIZE - 2, (int)GRID_SIZE - 2);
         // food
         graphics.setColor(Color.RED);
         for(Point point : this.game.getFood())
-            graphics.fillRect((int)((point.x + 1) * gridSize + 1),(int)((point.y + 1) * gridSize + 1),(int)gridSize - 2, (int)gridSize - 2);
+            graphics.fillRect((int)((point.x + 1) * GRID_SIZE + 1),(int)((point.y + 1) * GRID_SIZE + 1),(int)GRID_SIZE - 2, (int)GRID_SIZE - 2);
         if(game.isFinished())
             this.createNewGame();
     }

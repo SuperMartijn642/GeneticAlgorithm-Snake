@@ -1,8 +1,10 @@
-package supermartijn642.snakeai.screen;
+package supermartijn642.snakeai.screen.populationmenu;
 
 import supermartijn642.snakeai.Population;
 import supermartijn642.snakeai.SnakeGame;
 import supermartijn642.snakeai.render.IButton;
+import supermartijn642.snakeai.screen.IMenu;
+import supermartijn642.snakeai.screen.Screen;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -43,8 +45,8 @@ public class PopulationMenu implements IMenu {
 
     @Override
     public void draw(Graphics2D graphics) {
-        this.sideBar.draw(graphics);
         this.graph.draw(graphics);
+        this.sideBar.draw(graphics);
         this.drawGame(graphics);
         this.infoBar.draw(graphics,this);
         this.buttons.forEach(b -> b.draw(graphics));

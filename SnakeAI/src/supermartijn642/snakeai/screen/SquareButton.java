@@ -12,15 +12,24 @@ public abstract class SquareButton implements IButton {
 
     protected Position pos;
     protected boolean hover = false;
-    protected final int size;
+    protected final int width,height;
 
     public SquareButton(double x,double y,int size){
+        this(x,y,size,size);
+    }
+
+    public SquareButton(double x,double y,int width,int height){
         this.pos = new Position(x,y);
-        this.size = size;
+        this.width = width;
+        this.height = height;
     }
 
     public SquareButton(Position pos,int size){
         this(pos.x,pos.y,size);
+    }
+
+    public SquareButton(Position pos,int width,int height){
+        this(pos.x,pos.y,width,height);
     }
 
     @Override
@@ -30,31 +39,31 @@ public abstract class SquareButton implements IButton {
 
     @Override
     public double getRenderWidth() {
-        return this.size;
+        return this.width;
     }
 
     @Override
     public double getRenderHeight() {
-        return this.size;
+        return this.height;
     }
 
     @Override
     public double getClickWidth() {
-        return this.size;
+        return this.width;
     }
 
     @Override
     public double getClickHeight() {
-        return this.size;
+        return this.height;
     }
 
     @Override
     public void draw(Graphics2D graphics) {
         if(this.hover && this.canBeClicked()) {
             graphics.setColor(Color.GRAY);
-            graphics.fillRoundRect((int) this.pos.x, (int) this.pos.y, this.size, this.size, (int) (this.size * 0.2D), (int) (this.size * 0.2D));
+            graphics.fillRoundRect((int) this.pos.x, (int) this.pos.y, this.width, this.height, (int) (this.height * 0.2D), (int) (this.height * 0.2D));
             graphics.setColor(Color.LIGHT_GRAY);
-            graphics.drawRoundRect((int) this.pos.x, (int) this.pos.y, this.size, this.size, (int) (this.size * 0.2D), (int) (this.size * 0.2D));
+            graphics.drawRoundRect((int) this.pos.x, (int) this.pos.y, this.width, this.height, (int) (this.height * 0.2D), (int) (this.height * 0.2D));
         }
         this.drawIcon(graphics);
     }
