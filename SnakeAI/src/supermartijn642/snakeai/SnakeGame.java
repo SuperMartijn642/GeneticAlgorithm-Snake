@@ -30,8 +30,8 @@ public class SnakeGame {
         this.seed = seed;
         this.provider.init(this);
         this.head = provider.getStartPos();
-        while(food.size() < provider.getFoodCount(this))
-            food.add(provider.getNewFoodPos(this));
+            while(food.size() < provider.getFoodCount(this))
+                food.add(provider.getNewFoodPos(this));
     }
 
     public void update(){
