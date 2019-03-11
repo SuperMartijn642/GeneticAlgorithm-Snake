@@ -45,7 +45,7 @@ public class InfoBar {
             graphics.setColor(Color.RED);
             graphics.drawString("-", (int) (x2 - graphics.getFontMetrics().stringWidth("-") / 2D), y);
         }
-        else {
+        else if(menu.population.getCurrentBestGame() != null){
             num = menu.population.getCurrentBestGame().getScore();
             graphics.setColor(num == 0 ? Color.RED : Color.GREEN);
             graphics.drawString("" + num, (int) (x2 - graphics.getFontMetrics().stringWidth("" + num) / 2D), y);

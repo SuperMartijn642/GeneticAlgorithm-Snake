@@ -19,4 +19,10 @@ public interface SnakeGameProvider {
     Point getNewFoodPos(SnakeGame game);
     double getFitness(SnakeGame game);
 
+    byte[] toBytes();
+    /**
+     * Reads all variables from the given bytes.
+     */
+    void fromBytes(byte[] bytes);
+
 }

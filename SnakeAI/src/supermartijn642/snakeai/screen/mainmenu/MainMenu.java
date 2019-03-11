@@ -1,13 +1,15 @@
 package supermartijn642.snakeai.screen.mainmenu;
 
 import supermartijn642.snakeai.Population;
+import supermartijn642.snakeai.PopulationLoader;
 import supermartijn642.snakeai.SnakeGame;
 import supermartijn642.snakeai.providers.CrossDistanceGameProvider;
 import supermartijn642.snakeai.render.AnimatedButton;
 import supermartijn642.snakeai.render.IButton;
 import supermartijn642.snakeai.screen.IMenu;
-import supermartijn642.snakeai.screen.populationmenu.PopulationMenu;
 import supermartijn642.snakeai.screen.Screen;
+import supermartijn642.snakeai.screen.populationmenu.PopulationMenu;
+import supermartijn642.snakeai.screen.variablemenu.VariableMenu;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -38,16 +40,19 @@ public class MainMenu implements IMenu {
     public MainMenu(int width, int height){
         this.imgGame = new BufferedImage(width,height,BufferedImage.TYPE_INT_ARGB);
         this.imgGameBlurred = new BufferedImage(width,height,BufferedImage.TYPE_INT_ARGB);
-        this.buttons.add(new AnimatedButton(0.25D * width,0.45D * height,0.2D * width,0.1D * height,Color.BLUE,Color.cyan,"New Population") {
+        this.buttons.add(new AnimatedButton(0.25D * width,0.45D * height,0.2D * width,0.1D * height,Color.DARK_GRAY,new Color(0,230,0),"New Population") {
             @Override
             public void onClick() {
                 Screen.addMenu(new PopulationMenu(new Population(new Random().nextLong(),2000,100,100,35,1)));
+//                Screen.addMenu(new VariableMenu());
             }
         });
-        this.buttons.add(new AnimatedButton(0.55D * width,0.45D * height,0.2D * width,0.1D * height,Color.BLUE,Color.cyan,"Load Population") {
+        this.buttons.add(new AnimatedButton(0.55D * width,0.45D * height,0.2D * width,0.1D * height,Color.DARK_GRAY,new Color(0,230,0),"Load Population") {
             @Override
             public void onClick() {
-
+                Population population = PopulationLoader.handleLoad();
+                if(population != null)
+                    Screen.addMenu(new PopulationMenu(population));
             }
         });
         this.createNewGame();
@@ -65,9 +70,10 @@ public class MainMenu implements IMenu {
             }
             @Override
             public Point getNewFoodPos(SnakeGame game) {
+                Random random = new Random(game.getSeed() + game.getUpdates());
                 Point point;
                 loop: while(true){
-                    point = new Point(game.getRandom().nextInt(this.getXSize(game)),game.getRandom().nextInt(this.getYSize(game)));
+                    point = new Point(random.nextInt(this.getXSize(game)),random.nextInt(this.getYSize(game)));
                     if(game.getHead().equals(point))
                         continue;
                     for(Point point1 : game.getTale())

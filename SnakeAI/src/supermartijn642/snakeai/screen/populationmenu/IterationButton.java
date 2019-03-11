@@ -10,13 +10,11 @@ import java.awt.*;
  */
 public class IterationButton extends SquareButton {
 
-    private final PopulationMenu menu;
     private final int iterations;
     private int fontSize;
 
     public IterationButton(Position pos,double width,double height,PopulationMenu menu,int iterations,int fontSize){
-        super(pos,(int)width,(int)height);
-        this.menu = menu;
+        super(pos,(int)width,(int)height,menu);
         this.iterations = iterations;
         this.fontSize = fontSize;
     }
@@ -44,5 +42,10 @@ public class IterationButton extends SquareButton {
             this.menu.todo = this.iterations;
             this.menu.paused = false;
         }
+    }
+
+    @Override
+    public String getTooltip() {
+        return this.iterations == 1 ? "Run a Single Generation" : "Run for " + this.iterations + " Generations";
     }
 }

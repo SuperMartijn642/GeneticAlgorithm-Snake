@@ -4,6 +4,7 @@ import supermartijn642.nolearnneuralnetwork.NeuralNetwork;
 import supermartijn642.snakeai.SnakeGame;
 
 import java.awt.*;
+import java.util.Random;
 import java.util.function.Function;
 
 /**
@@ -30,7 +31,7 @@ public class PositionGameProvider extends NeuralNetworkGameProvider {
         network.setActivationFunction(this.activation_function);
         network.setWeights(1);
         network.setMaxWeight(10000);
-        network.changeWeights(2,game.getRandom());
+        network.changeWeights(2,new Random(game.getSeed()));
         return network;
     }
 

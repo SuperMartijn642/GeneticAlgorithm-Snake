@@ -5,9 +5,7 @@ import supermartijn642.snakeai.screen.mainmenu.MainMenu;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -15,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created 2/23/2019 by SuperMartijn642
  */
-public class Screen implements MouseListener, MouseMotionListener {
+public class Screen implements MouseListener, MouseMotionListener, KeyListener {
 
     private static final int IDEAL_WIDTH = 1440;
     private static final int IDEAL_HEIGHT = 810;
@@ -28,7 +26,7 @@ public class Screen implements MouseListener, MouseMotionListener {
 
     public static int width;
     public static int height;
-    public static Point lastMousePos;
+    public static Point lastMousePos = new Point(-1,-1);
 
     private static ArrayList<IMenu> menus;
     private static int transitionFrame;
@@ -52,18 +50,20 @@ public class Screen implements MouseListener, MouseMotionListener {
         frame = new JFrame("Snake Neural Network Trainer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setUndecorated(false);
-        frame.setResizable(true);
+        frame.setResizable(false);
         frame.getContentPane().setPreferredSize(new Dimension(width,height));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.addMouseListener(new Screen());
         frame.addMouseMotionListener(new Screen());
+        frame.addKeyListener(new Screen());
         canvas = new Canvas();
         canvas.setSize(width,height);
         canvas.setBackground(Color.BLACK);
         canvas.addMouseListener(new Screen());
         canvas.addMouseMotionListener(new Screen());
+        canvas.addKeyListener(new Screen());
         frame.add(canvas);
         frame.setVisible(true);
         new Thread("Start Frame"){
@@ -140,7 +140,9 @@ public class Screen implements MouseListener, MouseMotionListener {
     public void mouseClicked(MouseEvent e) {}
 
     @Override
-    public void mousePressed(MouseEvent e) {}
+    public void mousePressed(final MouseEvent e) {
+        menus.forEach(a -> a.mouseDown(e.getPoint()));
+    }
 
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -148,7 +150,7 @@ public class Screen implements MouseListener, MouseMotionListener {
             for(IButton button : menus.get(0).getButtons()){
                 if(e.getPoint().x > button.getPosition().x && e.getPoint().x < button.getPosition().x + button.getClickWidth() &&
                     e.getPoint().y > button.getPosition().y && e.getPoint().y < button.getPosition().y + button.getClickHeight()) {
-                    button.onClick();
+                    new Thread(() -> button.onClick()).start();
                     break;
                 }
             }
@@ -185,5 +187,24 @@ public class Screen implements MouseListener, MouseMotionListener {
             }
         }
         lastMousePos = e.getPoint();
+    }
+
+    public static JFrame getFrame(){
+        return frame;
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        menus.forEach(a -> a.keyDown(e));
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }

@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SnakeAI:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="497648e7-c937-493f-9391-6136772f2c1e" name="Default Changelist" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/AnimatedButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/IButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Graph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/IMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/InfoBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/IterationButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/MainMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/PlayButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/PopulationMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Screen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/ShowAllButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SideBar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SquareButton.java" afterDir="false" />
+    <list default="true" id="497648e7-c937-493f-9391-6136772f2c1e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/PopulationLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/Tooltip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/variablemenu/RandomField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/variablemenu/Slider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoLearnNeuralNetwork/src/supermartijn642/nolearnneuralnetwork/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/NoLearnNeuralNetwork/src/supermartijn642/nolearnneuralnetwork/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/BasicGameProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/BasicGameProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Population.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/StartScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/startscreen/StartScreenBackground.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/NoLearnNeuralNetwork/supermartijn642/nolearnneuralnetwork/NeuralNetwork.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NoLearnNeuralNetwork/supermartijn642/nolearnneuralnetwork/NeuralNetwork.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGameProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGameProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/CrossDistanceGameProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/CrossDistanceGameProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/DistanceGameProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/DistanceGameProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/NeuralNetworkGameProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/NeuralNetworkGameProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/PositionGameProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/PositionGameProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/AnimatedButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/AnimatedButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/IMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/IMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SquareButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SquareButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/mainmenu/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/mainmenu/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/InfoBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/InfoBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/IterationButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/IterationButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/PlayButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/PlayButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/PopulationMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/PopulationMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/ShowAllButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/ShowAllButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/SideBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/SideBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/variablemenu/VariableMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/variablemenu/VariableMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/BasicGameProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/BasicGameProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/Main2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/SnakeGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/SnakeGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/SnakeGame.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/SnakeGameProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/SnakeGameProvider.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/providers/CrossDistanceGameProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/providers/CrossDistanceGameProvider.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/render/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/render/Display.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/providers/NeuralNetworkGameProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeAI/supermartijn642/snakeai/providers/NeuralNetworkGameProvider.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,17 +60,17 @@
     <session id="-1457465670">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="23" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.14" value="5" />
-          <entry key="project.open.time.15" value="2" />
-          <entry key="project.open.time.16" value="5" />
-          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.15" value="6" />
+          <entry key="project.open.time.16" value="6" />
+          <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -72,7 +80,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="120" />
+          <entry key="JAVA" value="221" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -82,8 +90,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="45401" />
-          <entry key="PLAIN_TEXT" value="22" />
+          <entry key="JAVA" value="62111" />
+          <entry key="PLAIN_TEXT" value="46" />
         </counts>
       </usages-collector>
     </session>
@@ -91,24 +99,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/PopulationMenu.java">
+        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4334#4335#0" expanded="true" />
-                <element signature="e#4369#4370#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Graph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="29" column="94" selection-start-line="29" selection-start-column="94" selection-end-line="29" selection-end-column="94" />
+            <state relative-caret-position="227">
+              <caret line="131" column="35" lean-forward="true" selection-start-line="131" selection-start-column="35" selection-end-line="131" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,93 +111,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/ShowAllButton.java">
+        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1724#1725#0" expanded="true" />
-                <element signature="e#1751#1752#0" expanded="true" />
-                <element signature="e#1794#1795#0" expanded="true" />
-                <element signature="e#1846#1847#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="403">
+              <caret line="38" column="71" selection-start-line="38" selection-start-column="71" selection-end-line="38" selection-end-column="71" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/InfoBar.java">
+        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+            <state relative-caret-position="170">
+              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SquareButton.java">
+        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Screen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#521#522#0" expanded="true" />
-                <element signature="e#540#541#0" expanded="true" />
-                <element signature="e#294#295#0" expanded="true" />
-                <element signature="e#321#322#0" expanded="true" />
-                <element signature="e#373#374#0" expanded="true" />
-                <element signature="e#397#398#0" expanded="true" />
-                <element signature="e#450#451#0" expanded="true" />
-                <element signature="e#474#475#0" expanded="true" />
-                <element signature="e#525#526#0" expanded="true" />
-                <element signature="e#549#550#0" expanded="true" />
-                <element signature="e#601#602#0" expanded="true" />
-                <element signature="e#625#626#0" expanded="true" />
-                <element signature="e#1666#1667#0" expanded="true" />
-                <element signature="e#1699#1700#0" expanded="true" />
-                <element signature="e#1746#1747#0" expanded="true" />
-                <element signature="e#1780#1781#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/IterationButton.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="102" selection-start-line="15" selection-start-column="102" selection-end-line="15" selection-end-column="102" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#558#559#0" expanded="true" />
-                <element signature="e#586#587#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/PlayButton.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="51" column="5" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="51" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1688#1689#0" expanded="true" />
-                <element signature="e#1716#1717#0" expanded="true" />
-                <element signature="e#448#449#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SideBar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="85" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="85" />
+            <state relative-caret-position="360">
+              <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -212,21 +141,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Population.java">
+        <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/mainmenu/MainMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="155" selection-start-line="155" selection-end-line="155" />
+            <state relative-caret-position="284">
+              <caret line="69" column="13" lean-forward="true" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5861#5862#0" expanded="true" />
-                <element signature="e#6006#6007#0" expanded="true" />
-                <element signature="e#6061#6062#0" expanded="true" />
-                <element signature="e#6098#6099#0" expanded="true" />
-                <element signature="e#6133#6134#0" expanded="true" />
-                <element signature="e#6264#6265#0" expanded="true" />
-                <element signature="e#6300#6301#0" expanded="true" />
-                <element signature="e#6325#6326#0" expanded="true" />
-                <element signature="e#6346#6347#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -254,6 +174,10 @@
       <find>(0.15D + row * VERTICAL_SPACING)</find>
       <find>,0.1D * this.width,</find>
       <find>this.x + (column + 1) * HORIZONTAL_SPACING * this.width</find>
+      <find>new Font</find>
+      <find>drawToo</find>
+      <find>system.out</find>
+      <find>new Random(game.getSeed() + game.getUpdates()</find>
     </findStrings>
     <replaceStrings>
       <replace>(TOP_MARGIN + row * VERTICAL_SPACING)</replace>
@@ -287,21 +211,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/supermartijn642/nolearnneuralnetwork/NeuralNetwork.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/NeuralNetwork.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/NetworkGameProvider.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGame2.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/DistanceGameProvider.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/CrossDistanceGameProvider.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/CrossDistanceGameProvider.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/NeuralNetworkGameProvider.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/NeuralNetworkGameProvider.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGameProvider.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/PositionGameProvider.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/DistanceGameProvider.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/Population.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/CrossDistanceGameProvider.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGame.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Main2.java" />
         <option value="$PROJECT_DIR$/NoLearnNeuralNetwork/src/supermartijn642/nolearnneuralnetwork/NeuralNetwork.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/IButton.java" />
@@ -313,28 +225,51 @@
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/Display.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/startscreen/StartMainMenu.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/startscreen/StartScreen.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Main.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/AnimatedButton.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/BasicGameProvider.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/MainMenu.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Population.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Screen.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/PlayButton.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/InfoBar.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/ShowAllButton.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/IterationButton.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SideBar.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Graph.java" />
-        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SquareButton.java" />
         <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/PopulationMenu.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/AnimatedButton.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/variablemenu/Slider.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/IMenu.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/variablemenu/VariableMenu.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/variablemenu/RandomField.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/Utils.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/ToolTip.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/FileLoader.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Screen.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/PopulationLoader.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/Tooltip.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/ShowAllButton.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SquareButton.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/IterationButton.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/PlayButton.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGameProvider.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/NeuralNetworkGameProvider.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Main.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/SideBar.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/PopulationMenu.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/InfoBar.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Population.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/BasicGameProvider.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/DistanceGameProvider.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/CrossDistanceGameProvider.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/PositionGameProvider.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/Graph.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/mainmenu/MainMenu.java" />
+        <option value="$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGame.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
-    <option name="y" value="40" />
+    <option name="y" value="314" />
     <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -400,6 +335,30 @@
               <item name="snakeai" type="462c0819:PsiDirectoryNode" />
               <item name="screen" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="NoLearnNeuralNetwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SnakeAI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="snakeai" type="462c0819:PsiDirectoryNode" />
+              <item name="screen" type="462c0819:PsiDirectoryNode" />
+              <item name="mainmenu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NoLearnNeuralNetwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SnakeAI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="snakeai" type="462c0819:PsiDirectoryNode" />
+              <item name="screen" type="462c0819:PsiDirectoryNode" />
+              <item name="populationmenu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NoLearnNeuralNetwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SnakeAI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="snakeai" type="462c0819:PsiDirectoryNode" />
+              <item name="screen" type="462c0819:PsiDirectoryNode" />
+              <item name="variablemenu" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -407,9 +366,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551313766374" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552263440122" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/dl4j-quickstart-master.zip!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -507,6 +466,14 @@
       <option name="presentableId" value="Default" />
       <updated>1549040745830</updated>
     </task>
+    <task id="LOCAL-00001" summary="The big visual update">
+      <created>1551313910270</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1551313910270</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -520,9 +487,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22814499" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24413647" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -532,7 +498,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32952183" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3991684" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3991684" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32952183" />
@@ -557,7 +523,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="The big visual update" />
+    <option name="LAST_COMMIT_MESSAGE" value="The big visual update" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/supermartijn642/nolearnneuralnetwork/NeuralNetwork.java" />
@@ -611,13 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/awt/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="198" column="16" selection-start-line="198" selection-start-column="16" selection-end-line="198" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -632,31 +592,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGameProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/Random.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="385" column="15" selection-start-line="385" selection-start-column="15" selection-end-line="385" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/DistanceGameProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/PositionGameProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="30" column="30" lean-forward="true" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -667,24 +606,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NoLearnNeuralNetwork/src/supermartijn642/nolearnneuralnetwork/NeuralNetwork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="239" column="37" selection-start-line="239" selection-start-column="37" selection-end-line="239" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/awt/Font.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2310">
           <caret line="1558" column="30" lean-forward="true" selection-start-line="1558" selection-start-column="30" selection-end-line="1558" selection-end-column="30" />
-          <folding>
-            <element signature="e#56048#56049#0" expanded="true" />
-            <element signature="e#56088#56089#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -692,10 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="46" column="118" lean-forward="true" selection-start-line="46" selection-start-column="118" selection-end-line="46" selection-end-column="118" />
-          <folding>
-            <element signature="e#275#276#0" expanded="true" />
-            <element signature="e#312#313#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -703,6 +624,56 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/Display.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="113" column="49" lean-forward="true" selection-start-line="113" selection-start-column="49" selection-end-line="114" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/awt/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="198" column="16" selection-start-line="198" selection-start-column="16" selection-end-line="198" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/awt/FontMetrics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="188" column="15" selection-start-line="188" selection-start-column="15" selection-end-line="188" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/variablemenu/RandomField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="28" column="84" selection-start-line="28" selection-start-column="84" selection-end-line="28" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/variablemenu/VariableMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="38" column="93" lean-forward="true" selection-start-line="38" selection-start-column="93" selection-end-line="38" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2076#2077#0" expanded="true" />
+            <element signature="e#2123#2124#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/variablemenu/Slider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -711,102 +682,136 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/IMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="306">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/Display.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/awt/Frame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="113" column="49" lean-forward="true" selection-start-line="113" selection-start-column="49" selection-end-line="114" selection-end-column="53" />
+        <state relative-caret-position="184">
+          <caret line="922" selection-start-line="922" selection-end-line="922" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/PopulationLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="153" column="9" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1373#1374#0" expanded="true" />
+            <element signature="e#1473#1474#0" expanded="true" />
+            <element signature="e#1540#1541#0" expanded="true" />
+            <element signature="e#1629#1630#0" expanded="true" />
+            <element signature="e#4273#4274#0" expanded="true" />
+            <element signature="e#4373#4374#0" expanded="true" />
+            <element signature="e#4440#4441#0" expanded="true" />
+            <element signature="e#4529#4530#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/AnimatedButton.java">
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/Tooltip.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="84" column="172" selection-start-line="84" selection-start-column="172" selection-end-line="84" selection-end-column="172" />
+        <state relative-caret-position="410">
+          <caret line="77" column="42" lean-forward="true" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3332#3333#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/ShowAllButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding>
+            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SquareButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding>
+            <element signature="e#750#751#0" expanded="true" />
+            <element signature="e#788#789#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/IterationButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NoLearnNeuralNetwork/src/supermartijn642/nolearnneuralnetwork/NeuralNetwork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="245" column="58" lean-forward="true" selection-start-line="245" selection-start-column="58" selection-end-line="245" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/PlayButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGameProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/NeuralNetworkGameProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/BasicGameProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
-          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding>
-            <element signature="e#1173#1174#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-          </folding>
+          <caret line="57" column="39" lean-forward="true" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/MainMenu.java">
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/render/AnimatedButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        <state relative-caret-position="-34">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/SideBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="32" column="87" selection-start-line="32" selection-start-column="87" selection-end-line="32" selection-end-column="87" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1642#1643#0" expanded="true" />
-            <element signature="e#1684#1685#0" expanded="true" />
-            <element signature="e#1756#1757#0" expanded="true" />
-            <element signature="e#1797#1798#0" expanded="true" />
-            <element signature="e#4111#4112#0" expanded="true" />
-            <element signature="e#4146#4147#0" expanded="true" />
+            <element signature="e#1838#1839#0" expanded="true" />
+            <element signature="e#1898#1899#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGame.java">
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/InfoBar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="47" column="60" selection-start-line="47" selection-start-column="60" selection-end-line="47" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/CrossDistanceGameProvider.java">
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/PopulationMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="76" selection-start-line="15" selection-start-column="76" selection-end-line="15" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Screen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="107" column="53" selection-start-line="107" selection-start-column="53" selection-end-line="107" selection-end-column="53" />
+        <state relative-caret-position="176">
+          <caret line="81" column="61" selection-start-line="81" selection-start-column="61" selection-end-line="81" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -815,124 +820,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Population.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="155" selection-start-line="155" selection-end-line="155" />
+        <state relative-caret-position="-2479">
+          <caret line="74" column="55" selection-start-line="74" selection-start-column="55" selection-end-line="74" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5861#5862#0" expanded="true" />
-            <element signature="e#6006#6007#0" expanded="true" />
-            <element signature="e#6061#6062#0" expanded="true" />
-            <element signature="e#6098#6099#0" expanded="true" />
-            <element signature="e#6133#6134#0" expanded="true" />
-            <element signature="e#6264#6265#0" expanded="true" />
-            <element signature="e#6300#6301#0" expanded="true" />
-            <element signature="e#6325#6326#0" expanded="true" />
-            <element signature="e#6346#6347#0" expanded="true" />
+            <element signature="e#6207#6208#0" expanded="true" />
+            <element signature="e#6262#6263#0" expanded="true" />
+            <element signature="e#6522#6523#0" expanded="true" />
+            <element signature="e#6559#6560#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/InfoBar.java">
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/BasicGameProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/PlayButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="51" column="5" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="51" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1688#1689#0" expanded="true" />
-            <element signature="e#1716#1717#0" expanded="true" />
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/ShowAllButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1724#1725#0" expanded="true" />
-            <element signature="e#1751#1752#0" expanded="true" />
-            <element signature="e#1794#1795#0" expanded="true" />
-            <element signature="e#1846#1847#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SideBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="85" selection-start-line="34" selection-start-column="85" selection-end-line="34" selection-end-column="85" />
+        <state relative-caret-position="301">
+          <caret line="64" column="26" lean-forward="true" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/IterationButton.java">
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/DistanceGameProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="102" selection-start-line="15" selection-start-column="102" selection-end-line="15" selection-end-column="102" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#558#559#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="442">
+          <caret line="33" column="57" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/SquareButton.java">
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/CrossDistanceGameProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#521#522#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#294#295#0" expanded="true" />
-            <element signature="e#321#322#0" expanded="true" />
-            <element signature="e#373#374#0" expanded="true" />
-            <element signature="e#397#398#0" expanded="true" />
-            <element signature="e#450#451#0" expanded="true" />
-            <element signature="e#474#475#0" expanded="true" />
-            <element signature="e#525#526#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#601#602#0" expanded="true" />
-            <element signature="e#625#626#0" expanded="true" />
-            <element signature="e#1666#1667#0" expanded="true" />
-            <element signature="e#1699#1700#0" expanded="true" />
-            <element signature="e#1746#1747#0" expanded="true" />
-            <element signature="e#1780#1781#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Graph.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="29" column="94" selection-start-line="29" selection-start-column="94" selection-end-line="29" selection-end-column="94" />
+        <state relative-caret-position="272">
+          <caret line="37" column="57" selection-start-line="37" selection-start-column="57" selection-end-line="37" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/PopulationMenu.java">
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/providers/PositionGameProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        <state relative-caret-position="199">
+          <caret line="33" column="57" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/populationmenu/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="38" column="71" selection-start-line="38" selection-start-column="71" selection-end-line="38" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4334#4335#0" expanded="true" />
-            <element signature="e#4369#4370#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/screen/mainmenu/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="69" column="13" lean-forward="true" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnakeAI/src/supermartijn642/snakeai/SnakeGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="131" column="35" lean-forward="true" selection-start-line="131" selection-start-column="35" selection-end-line="131" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -943,10 +916,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>SnakeAI:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

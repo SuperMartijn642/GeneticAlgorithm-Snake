@@ -3,6 +3,7 @@ package supermartijn642.snakeai.screen;
 import supermartijn642.snakeai.render.IButton;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 /**
@@ -12,5 +13,9 @@ public interface IMenu {
 
     void draw(Graphics2D graphics);
     List<IButton> getButtons();
+    default void mouseDown(Point mouse){}
+    default void mouseUp(Point mouse){}
+    default void keyDown(KeyEvent event){}
+    default void keyUp(KeyEvent event){}
 
 }

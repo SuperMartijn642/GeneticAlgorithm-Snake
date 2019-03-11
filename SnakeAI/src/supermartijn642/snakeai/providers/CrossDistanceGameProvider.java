@@ -4,6 +4,7 @@ import supermartijn642.nolearnneuralnetwork.NeuralNetwork;
 import supermartijn642.snakeai.SnakeGame;
 
 import java.awt.*;
+import java.util.Random;
 import java.util.function.Function;
 
 /**
@@ -11,7 +12,7 @@ import java.util.function.Function;
  */
 public class CrossDistanceGameProvider extends NeuralNetworkGameProvider {
 
-    public final Function<Double,Double> activation_function;
+    public Function<Double,Double> activation_function;
 
     public CrossDistanceGameProvider(Function<Double,Double> function, int size, int food_count){
         super(size,8,food_count,300,100);
@@ -24,13 +25,17 @@ public class CrossDistanceGameProvider extends NeuralNetworkGameProvider {
         this.activation_function = null;
     }
 
+    public CrossDistanceGameProvider(){
+        super();
+    }
+
     @Override
     public NeuralNetwork createNetwork(SnakeGame game) {
         NeuralNetwork network = new NeuralNetwork(20,4,20,20);
         network.setActivationFunction(this.activation_function);
         network.setWeights(1);
         network.setMaxWeight(10000);
-        network.changeWeights(2,game.getRandom());
+        network.changeWeights(2,new Random(game.getSeed()));
         return network;
     }
 
@@ -42,10 +47,10 @@ public class CrossDistanceGameProvider extends NeuralNetworkGameProvider {
             input[a] = game_distance;
         Point head = game.getHead();
         // walls
-        input[0] = 1 / (game.getHead().x + 1D);
-        input[1] = 1 / (this.x_size - (double)game.getHead().x);
-        input[2] = 1 / (game.getHead().y + 1D);
-        input[3] = 1 / (this.y_size - (double)game.getHead().y);
+        input[0] = game.getHead().x + 1D;
+        input[1] = this.x_size - (double)game.getHead().x;
+        input[2] = game.getHead().y + 1D;
+        input[3] = this.y_size - (double)game.getHead().y;
         // tale
         for(Point point : game.getTale()) {
             Point point1 = new Point(point.x - head.x,point.y - head.y);
@@ -141,14 +146,12 @@ public class CrossDistanceGameProvider extends NeuralNetworkGameProvider {
 
     @Override
     public Point getHeading(SnakeGame game, double[] result) {
-        if(result[0] > result[1] && result[0] > result[2] && result[0] > result[3])
-            return new Point(-1,0);
         if(result[1] > result[0] && result[1] > result[2] && result[1] > result[3])
             return new Point(1,0);
         if(result[2] > result[0] && result[2] > result[1] && result[2] > result[3])
             return new Point(0,-1);
         if(result[3] > result[0] && result[3] > result[1] && result[3] > result[2])
             return new Point(0,1);
-        return new Point();
+        return new Point(-1,0);
     }
 }

@@ -4,6 +4,7 @@ import supermartijn642.snakeai.Position;
 import supermartijn642.snakeai.screen.Screen;
 
 import java.awt.*;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 /**
@@ -11,27 +12,31 @@ import java.util.ArrayList;
  */
 public class Graph {
 
-    public ArrayList<Integer> points = new ArrayList<>();
+    private PopulationMenu menu;
     private int width, height;
     private int x;
 
     public Graph(PopulationMenu menu,double height,double x,double width){
+        this.menu = menu;
         this.width = (int)(width * Screen.width);
         this.height = (int)(Screen.height - height * Screen.width);
         this.x = (int)(Screen.width * x);
-        this.points.add(0);
     }
 
     public void draw(Graphics2D graphics){
         graphics.setColor(Color.BLACK);
         graphics.fillRect(this.x,0,this.width,this.height);
         graphics.setColor(Color.GREEN);
+        ArrayList<Integer> points = new ArrayList<>(this.menu.population.getGeneration() + 1);
+        points.add(0);
+        for(int a = 1; a <= this.menu.population.getGeneration(); a++)
+            points.add(this.menu.population.getBestGame(a).getScore());
         int highest = 1;
         for(int score : points)
             if(score > highest)
                 highest = score;
         // line
-        double deltaX = points.size() == 1 ? 1 : (double)this.width / (this.points.size() - 1);
+        double deltaX = points.size() == 1 ? 1 : (double)this.width / (points.size() - 1);
         for (int a = 1; a < points.size(); a++) {
             graphics.drawLine((int)(this.x + (a - 1) * deltaX),(int)((1 - (double)points.get(a - 1) / highest) * this.height),
                 (int)(this.x + a * deltaX),(int)((1 - (double)points.get(a) / highest) * this.height));

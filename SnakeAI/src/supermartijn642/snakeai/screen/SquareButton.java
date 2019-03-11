@@ -1,7 +1,10 @@
 package supermartijn642.snakeai.screen;
 
+import com.sun.istack.internal.Nullable;
 import supermartijn642.snakeai.Position;
 import supermartijn642.snakeai.render.IButton;
+import supermartijn642.snakeai.render.Tooltip;
+import supermartijn642.snakeai.screen.populationmenu.PopulationMenu;
 
 import java.awt.*;
 
@@ -13,23 +16,25 @@ public abstract class SquareButton implements IButton {
     protected Position pos;
     protected boolean hover = false;
     protected final int width,height;
+    protected final PopulationMenu menu;
 
-    public SquareButton(double x,double y,int size){
-        this(x,y,size,size);
+    public SquareButton(double x,double y,int size,PopulationMenu menu){
+        this(x,y,size,size,menu);
     }
 
-    public SquareButton(double x,double y,int width,int height){
+    public SquareButton(double x,double y,int width,int height,PopulationMenu menu){
         this.pos = new Position(x,y);
         this.width = width;
         this.height = height;
+        this.menu = menu;
     }
 
-    public SquareButton(Position pos,int size){
-        this(pos.x,pos.y,size);
+    public SquareButton(Position pos,int size,PopulationMenu menu){
+        this(pos.x,pos.y,size,menu);
     }
 
-    public SquareButton(Position pos,int width,int height){
-        this(pos.x,pos.y,width,height);
+    public SquareButton(Position pos,int width,int height,PopulationMenu menu){
+        this(pos.x,pos.y,width,height,menu);
     }
 
     @Override
@@ -66,10 +71,15 @@ public abstract class SquareButton implements IButton {
             graphics.drawRoundRect((int) this.pos.x, (int) this.pos.y, this.width, this.height, (int) (this.height * 0.2D), (int) (this.height * 0.2D));
         }
         this.drawIcon(graphics);
+        Position mouse = new Position(Screen.lastMousePos).translate(-this.pos.x,-this.pos.y);
+        if(!(this.getTooltip() == null || this.getTooltip().equals("")) && mouse.x > 0 && mouse.x < this.width && mouse.y > 0 && mouse.y < this.height)
+            this.menu.tooltip = new Tooltip(this.pos.x + this.width / 2D,this.pos.y + this.height / 2D,this.getTooltip(),this.height * 0.75D);
     }
 
     public abstract void drawIcon(Graphics2D graphics);
     public abstract boolean canBeClicked();
+    @Nullable
+    public abstract String getTooltip();
 
     @Override
     public void onHoverEnter() {

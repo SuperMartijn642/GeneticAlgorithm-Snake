@@ -10,11 +10,8 @@ import java.awt.*;
  */
 public class ShowAllButton extends SquareButton {
 
-    private final PopulationMenu menu;
-
     public ShowAllButton(Position pos, double size, PopulationMenu menu){
-        super(pos,(int)size);
-        this.menu = menu;
+        super(pos,(int)size,menu);
     }
 
     @Override
@@ -33,4 +30,8 @@ public class ShowAllButton extends SquareButton {
         this.menu.every_generation = !this.menu.every_generation;
     }
 
+    @Override
+    public String getTooltip() {
+        return this.menu.every_generation ? "Replay Only Last Generation" : "Replay Every Generation";
+    }
 }

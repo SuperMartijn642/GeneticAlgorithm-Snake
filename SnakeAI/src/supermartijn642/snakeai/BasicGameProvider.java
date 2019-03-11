@@ -1,17 +1,19 @@
 package supermartijn642.snakeai;
 
 import java.awt.*;
+import java.nio.ByteBuffer;
+import java.util.Random;
 
 /**
  * Created 2/18/2019 by SuperMartijn642
  */
 public abstract class BasicGameProvider implements SnakeGameProvider {
 
-    public final int x_size, y_size;
-    public final int snake_length;
-    public final int food_count;
-    public final int timeout;
-    public final int timeout_bonus;
+    public int x_size, y_size;
+    public int snake_length;
+    public int food_count;
+    public int timeout;
+    public int timeout_bonus;
 
     public BasicGameProvider(int size, int snake_length, int food_count, int timeout, int timeout_bonus){
         this.x_size = size;
@@ -21,6 +23,8 @@ public abstract class BasicGameProvider implements SnakeGameProvider {
         this.timeout = timeout;
         this.timeout_bonus = timeout_bonus;
     }
+
+    public BasicGameProvider(){}
 
     @Override
     public void init(SnakeGame game) {}
@@ -57,9 +61,10 @@ public abstract class BasicGameProvider implements SnakeGameProvider {
 
     @Override
     public Point getNewFoodPos(SnakeGame game) {
+        Random random = new Random(game.getSeed() + game.getUpdates());
         Point point;
         loop: while(true){
-            point = new Point(game.getRandom().nextInt(this.x_size),game.getRandom().nextInt(this.y_size));
+            point = new Point(random.nextInt(this.x_size),random.nextInt(this.y_size));
             if(game.getHead().equals(point))
                 continue;
             for(Point point1 : game.getTale())
@@ -76,5 +81,28 @@ public abstract class BasicGameProvider implements SnakeGameProvider {
     @Override
     public double getFitness(SnakeGame game) {
         return game.getScore();
+    }
+
+    @Override
+    public byte[] toBytes() {
+        ByteBuffer buffer = ByteBuffer.allocate(6 * 4);
+        buffer.putInt(this.x_size);
+        buffer.putInt(this.y_size);
+        buffer.putInt(this.snake_length);
+        buffer.putInt(this.food_count);
+        buffer.putInt(this.timeout);
+        buffer.putInt(this.timeout_bonus);
+        return buffer.array();
+    }
+
+    @Override
+    public void fromBytes(byte[] bytes) {
+        ByteBuffer buffer = ByteBuffer.wrap(bytes);
+        this.x_size = buffer.getInt();
+        this.y_size = buffer.getInt();
+        this.snake_length = buffer.getInt();
+        this.food_count = buffer.getInt();
+        this.timeout = buffer.getInt();
+        this.timeout_bonus = buffer.getInt();
     }
 }

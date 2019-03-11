@@ -1,6 +1,8 @@
 package supermartijn642.snakeai.screen.populationmenu;
 
+import supermartijn642.snakeai.PopulationLoader;
 import supermartijn642.snakeai.Position;
+import supermartijn642.snakeai.render.AnimatedButton;
 import supermartijn642.snakeai.screen.Screen;
 
 import java.awt.*;
@@ -28,6 +30,12 @@ public class SideBar {
         menu.buttons.add(new IterationButton(this.getButtonPos(0,2,BUTTON_HEIGHT * 2D), BUTTON_HEIGHT * 1.5D * this.width,BUTTON_HEIGHT * this.width,menu,10,(int)(this.width * 0.15D)));
         menu.buttons.add(new IterationButton(this.getButtonPos(0,3,BUTTON_HEIGHT * 3.5D),BUTTON_HEIGHT * 2D * this.width,BUTTON_HEIGHT * this.width,menu,100,(int)(this.width * 0.15D)));
         menu.buttons.add(new ShowAllButton(this.getButtonPos(1,0,0), BUTTON_HEIGHT * this.width,menu));
+        menu.buttons.add(new AnimatedButton(this.x + (this.width - 0.2D * Screen.width) / 2D,Screen.height * 0.8D,0.2D * Screen.width,0.1D * Screen.height,Color.BLACK,new Color(0,230,0),"Save Population") {
+            @Override
+            public void onClick() {
+                PopulationLoader.handleSave(menu.population);
+            }
+        });
     }
 
     private Position getButtonPos(int row,int column,double prevButtonWidth){

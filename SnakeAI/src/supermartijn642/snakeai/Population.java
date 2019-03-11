@@ -3,6 +3,7 @@ package supermartijn642.snakeai;
 import supermartijn642.snakeai.providers.CrossDistanceGameProvider;
 import supermartijn642.snakeai.providers.NeuralNetworkGameProvider;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class Population {
     private final int gameSize;
     private final int gameFoodCount;
 
-    private final Random random;
+    private final long seed;
     private final LinkedHashMap<NeuralNetworkGameProvider,SnakeGame> networks;
     private final ArrayList<SnakeGame> bestGames = new ArrayList<>();
     private int bestGameGeneration = 0;
@@ -30,7 +31,7 @@ public class Population {
     private boolean shouldStop = false;
 
     public Population(long seed, int size, int survivors, int newSnakes, int gameSize, int gameFoodCount){
-        this.random = new Random(seed);
+        this.seed = seed;
         this.populationSize = size;
         this.survivors = survivors;
         this.newSnakes = newSnakes;
@@ -47,9 +48,8 @@ public class Population {
     private void createNetworks(){
         for (int a = 0; a < populationSize; a++) {
             NeuralNetworkGameProvider provider = new CrossDistanceGameProvider(x -> x,this.gameSize,this.gameFoodCount);
-            networks.put(provider, new SnakeGame(provider, random.nextInt()));
+            networks.put(provider, new SnakeGame(provider, new Random(this.seed + this.iteration + a).nextInt()));
         }
-
     }
 
     private void singleRun(){
@@ -129,24 +129,24 @@ public class Population {
     }
 
     private void mutateNetworks(){
-        LinkedHashMap<NeuralNetworkGameProvider, SnakeGame> new_networks = new LinkedHashMap<>(populationSize);
+        LinkedHashMap<NeuralNetworkGameProvider, SnakeGame> new_networks = new LinkedHashMap<>(this.populationSize);
         // survivors
         for (int a = 0; a < survivors; a++) {
             NeuralNetworkGameProvider provider = (NeuralNetworkGameProvider) networks.keySet().toArray()[a];
             provider = new CrossDistanceGameProvider(provider.network.clone(),this.gameSize,this.gameFoodCount); // clone network for old games to be able to be replayed
-            new_networks.put(provider, new SnakeGame(provider, random.nextInt()));
+            new_networks.put(provider, new SnakeGame(provider, new Random(this.seed + this.iteration + a + 1).nextInt()));
         }
         // new snakes
         for (int a = 0; a < newSnakes; a++) {
             NeuralNetworkGameProvider provider = new CrossDistanceGameProvider(x -> x,this.gameSize,this.gameFoodCount);
-            new_networks.put(provider, new SnakeGame(provider, random.nextInt()));
+            new_networks.put(provider, new SnakeGame(provider, new Random(this.seed + this.iteration + a + 2).nextInt()));
         }
         // re-population
         for (int a = survivors + newSnakes; a < populationSize; a++) {
             NeuralNetworkGameProvider provider = (NeuralNetworkGameProvider) networks.keySet().toArray()[a % survivors];
             provider = new CrossDistanceGameProvider(provider.network.clone(),this.gameSize,this.gameFoodCount);
-            provider.network.changeWeights(2,random);
-            new_networks.put(provider, new SnakeGame(provider,random.nextInt()));
+            provider.network.changeWeights(2,new Random(this.seed + this.iteration + a));
+            new_networks.put(provider, new SnakeGame(provider,new Random(this.seed + this.iteration + a + 3).nextInt()));
         }
         networks.clear();
         networks.putAll(new_networks);
@@ -179,5 +179,79 @@ public class Population {
 
     public int getGeneration(){
         return this.iteration;
+    }
+
+    public byte[] toBytes(){
+        int networksBytes = 4;
+        ArrayList<byte[]> bytes1 = new ArrayList<>(this.networks.size());
+        for(Map.Entry<NeuralNetworkGameProvider,SnakeGame> entry : this.networks.entrySet()){
+            byte[] b = entry.getValue().toBytes();
+            bytes1.add(b);
+            networksBytes += b.length + 4;
+        }
+        int bestGamesBytes = 4;
+        ArrayList<byte[]> bytes2 = new ArrayList<>(this.bestGames.size());
+        for(SnakeGame game : this.bestGames){
+            byte[] b = game.toBytes();
+            bytes2.add(b);
+            bestGamesBytes += b.length + 4;
+        }
+        int iBytes = 7 * 4;
+        int lBytes = 8;
+        ByteBuffer buffer = ByteBuffer.allocate(networksBytes + bestGamesBytes + iBytes + lBytes);
+        buffer.putInt(this.populationSize);
+        buffer.putInt(this.survivors);
+        buffer.putInt(this.newSnakes);
+        buffer.putInt(this.gameSize);
+        buffer.putInt(this.gameFoodCount);
+        buffer.putLong(this.seed);
+        buffer.putInt(this.networks.size());
+        for(byte[] b : bytes1){
+            buffer.putInt(b.length);
+            buffer.put(b);
+        }
+        buffer.putInt(this.bestGames.size());
+        for(byte[] b : bytes2){
+            buffer.putInt(b.length);
+            buffer.put(b);
+        }
+        buffer.putInt(this.bestGameGeneration);
+        buffer.putInt(this.iteration);
+        return buffer.array();
+    }
+
+    public static Population fromBytes(byte[] bytes){
+        ByteBuffer buffer = ByteBuffer.wrap(bytes);
+        int populationSize = buffer.getInt();
+        int survivors = buffer.getInt();
+        int newSnakes = buffer.getInt();
+        int gameSize = buffer.getInt();
+        int gameFoodCount = buffer.getInt();
+        long seed = buffer.getLong();
+        int length = buffer.getInt();
+        LinkedHashMap<NeuralNetworkGameProvider,SnakeGame> networks = new LinkedHashMap<>(length);
+        for(int a = 0; a < length; a++){
+            byte[] b = new byte[buffer.getInt()];
+            buffer.get(b);
+            SnakeGame game = SnakeGame.fromBytes(b);
+            networks.put((NeuralNetworkGameProvider)game.getProvider(),game);
+        }
+        length = buffer.getInt();
+        ArrayList<SnakeGame> bestGames = new ArrayList<>(length);
+        for(int a = 0; a < length; a++){
+            byte[] b = new byte[buffer.getInt()];
+            buffer.get(b);
+            bestGames.add(SnakeGame.fromBytes(b));
+        }
+        int bestGameGeneration = buffer.getInt();
+        int iteration = buffer.getInt();
+        Population population = new Population(seed,populationSize,survivors,newSnakes,gameSize,gameFoodCount);
+        population.networks.clear();
+        population.networks.putAll(networks);
+        population.bestGames.clear();
+        population.bestGames.addAll(bestGames);
+        population.bestGameGeneration = bestGameGeneration;
+        population.iteration = iteration;
+        return population;
     }
 }

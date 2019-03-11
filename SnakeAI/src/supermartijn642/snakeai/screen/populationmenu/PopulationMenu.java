@@ -3,6 +3,7 @@ package supermartijn642.snakeai.screen.populationmenu;
 import supermartijn642.snakeai.Population;
 import supermartijn642.snakeai.SnakeGame;
 import supermartijn642.snakeai.render.IButton;
+import supermartijn642.snakeai.render.Tooltip;
 import supermartijn642.snakeai.screen.IMenu;
 import supermartijn642.snakeai.screen.Screen;
 
@@ -35,6 +36,8 @@ public class PopulationMenu implements IMenu {
     public boolean paused = true;
     public int todo = -1;
 
+    public Tooltip tooltip;
+
     public PopulationMenu(Population population){
         this.sideBar = new SideBar(this,BAR_SIZE,BAR_LEFT);
         this.graph = new Graph(this,GAME_SIZE,BAR_LEFT ? BAR_SIZE : 0,GAME_SIZE + INFO_SIZE);
@@ -50,13 +53,15 @@ public class PopulationMenu implements IMenu {
         this.drawGame(graphics);
         this.infoBar.draw(graphics,this);
         this.buttons.forEach(b -> b.draw(graphics));
+        if(this.tooltip != null) {
+            this.tooltip.draw(graphics);
+            this.tooltip = null;
+        }
     }
 
     private void drawGame(Graphics2D graphics){
         if(!this.paused && !this.population.isRunning() && (this.todo == -1 || this.todo > 0)) {
             if(!every_generation || (this.game == null || this.game.isFinished())) {
-                if(this.population.getGeneration() > 0)
-                    this.graph.points.add(this.population.getCurrentBestGame().getScore());
                 this.population.runAsync(1);
                 if(this.todo > 0)
                     this.todo--;

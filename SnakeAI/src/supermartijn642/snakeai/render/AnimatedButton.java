@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public abstract class AnimatedButton implements IButton {
 
     private static final int HOVER_FRAMES = 30;
-    private static final Font FONT = new Font("",Font.PLAIN,20);
+    private static final double FONT_SIZE = 0.105D;
 
     private Position pos;
     private final double width, height;
@@ -80,7 +80,7 @@ public abstract class AnimatedButton implements IButton {
                 }
         }
         graphics.setColor(Color.WHITE);
-        graphics.setFont(FONT);
+        graphics.setFont(new Font("",Font.PLAIN,(int)(this.width * FONT_SIZE)));
         FontMetrics fontMetrics = graphics.getFontMetrics();
         graphics.drawString(this.text,(int)(this.pos.x + (this.width - fontMetrics.stringWidth(this.text)) / 2D),(int)(this.pos.y + fontMetrics.getAscent() + (this.height - fontMetrics.getHeight()) / 2D));
     }

@@ -12,13 +12,11 @@ public class PlayButton extends SquareButton {
 
     private static final double ICON_MARGIN = 0.2D;
 
-    private final PopulationMenu menu;
     private final Polygon paused;
     private final Polygon unpaused1,unpaused2;
 
     public PlayButton(Position pos, double size, PopulationMenu menu){
-        super(pos,(int)size);
-        this.menu = menu;
+        super(pos,(int)size,menu);
         double x = pos.x;
         double y = pos.y;
         int[] xpoint = new int[]{(int)(x + ICON_MARGIN * size),(int)(x + ICON_MARGIN * size),(int)(x + (1 - ICON_MARGIN * 0.8D) * size)};
@@ -52,5 +50,10 @@ public class PlayButton extends SquareButton {
     @Override
     public void onClick() {
         this.menu.paused = !this.menu.paused;
+    }
+
+    @Override
+    public String getTooltip() {
+        return this.menu.population.getGeneration() == 0 ? "Start the Simulation" : this.menu.paused ? "Unpause the Simulation" : "Pause the Simulation";
     }
 }
